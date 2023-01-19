@@ -31,28 +31,53 @@ class Modelo {
 
         $id = $nombre = "";
 
-        // comprobamos si exite el Categoria por hacer
+        // comprobamos si exite el Categoria  Comprobar antes de meter en categoria si no hay filas con ese nombre
+        
 
-        //
+
+        //Actualizar
         if(isset($post["id"]) && $post["id"] != ""){
-            
-            if(isset($post["nombre"])) $nombre = $post["nombre"];
 
-            $sql=("UPDATE categorias SET nombre = ? WHERE id=".$post["id"].";");
-            $stmt = $this->db->prepare($sql);
-            $stmt->bind_param('s', $nombre);
-            $stmt->execute();
-            $stmt->close();
+            if(isset($post["nombre"]) && $post["nombre"]!=''){
+                $nombre = $post["nombre"];
 
-        }else{
-            if(isset($post["nombre"])) $nombre = $post["nombre"];
+                $consulta=$this->db->query(" SELECT * from categorias WHERE nombre='".$nombre."'; ");
+
+                if($consulta->num_rows<1){//revisa q no hay mas como el
+                    $sql=("UPDATE categorias SET nombre = ? WHERE id=".$post["id"].";");
+                    $stmt = $this->db->prepare($sql);
+                    $stmt->bind_param('s', $nombre);
+                    $stmt->execute();
+                    $stmt->close();
+                }     
+            }else{
+
+                echo('no hay nombre');
+
+            }
+
+        }else{//Añadir
+            if(isset($post["nombre"]) && $post["nombre"]!=''){
+                $nombre = $post["nombre"];
+
+                $consulta=$this->db->query(" SELECT * from categorias WHERE nombre='".$nombre."'; ");
+
+                if($consulta->num_rows<1){
+                    $sql=("INSERT INTO categorias (id, nombre) values(default, ?);");
+                    $stmt = $this->db->prepare($sql);
+                    $stmt->bind_param('s', $nombre);
+                    $stmt->execute();
+                    $stmt->close();
+
+                }
 
 
-            $sql=("INSERT INTO categorias (id, nombre) values(default, ?);");
-            $stmt = $this->db->prepare($sql);
-            $stmt->bind_param('s', $nombre);
-            $stmt->execute();
-            $stmt->close();
+
+
+            } else{
+
+                echo('no hay nombre');
+            }
         }      
     }
 
