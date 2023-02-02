@@ -8,7 +8,7 @@ require_once "model/modelo.php";
 class ControladorCategoria {
     /*Inicia el modelo y selecciona la vista listar*/
     public function __construct() {
-        $this->vista = 'listar';
+        $this->vista = 'aniadir';
         $this->modelo = new Modelo();
     }
     /*Funcion que cambia la vista a la de añadir*/

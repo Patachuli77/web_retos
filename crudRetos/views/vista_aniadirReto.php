@@ -1,0 +1,40 @@
+<main id="aniadir">
+        <form action="index.php?action=addReto" enctype="multipart/form-data" method="POST">
+                <input type="hidden" name="id"/>
+                <input type="hidden" name="idProf"/>
+                <label for="nombre">Nombre</label><br/>
+                <input type="text" name="nombre"><br/>
+                
+                <label for="dirigido">Dirigido</label><br/>
+                <input type="text" name="dirigido"><br/>
+                
+                <label for="descripcion">Descripcion</label><br/>
+                <textarea name="descripcion"></textarea><br/>
+                
+                <label for="fInicioIns">Fecha de inico de inscripcion</label><br/>
+                <input type="date" name="fInicioIns"><br/>
+                
+                <label for="fFinIns">Fecha de fin de inscripcion</label><br/>
+                <input type="date" name="fFinIns"><br/>
+                
+                <label for="fInicioRet">Fecha de incio de reto</label><br/>
+                <input type="date" name="fInicioRet"><br/>
+                
+                <label for="fFinRet">Fecha de final de reto</label><br/>
+                <input type="date" name="fFinRet"><br/>
+                
+                <label for="fpublicRet">Fecha publicacion del reto</label><br/>
+                <input type="date" name="fpublicRet"><br/>
+                
+                <label for="publicado">Publicado</label><br/>
+                <input type="check" name="publicado"><br/>
+
+                <label for="categoria">Categoria</label><br/>
+                <select name="categoria">
+                    <option value="1">Hola</option>
+                    <option value="2">Adios</option>
+                </select><br/>
+
+                <input type="submit">
+         </form>
+</main>

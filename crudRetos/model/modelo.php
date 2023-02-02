@@ -67,7 +67,6 @@ class Modelo {
             }
 
     }
-    
     /*Elimina una fila por el id que le han pasado*/
     public function eliminarCategoria($id){
 
