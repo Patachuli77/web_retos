@@ -75,6 +75,7 @@ class Modelo {
         $stmt->execute();
         $stmt->close();
     }
+    /******************************RETOS*********************************/
     public function addReto($post){
        
             $nombre = $post["nombre"];
@@ -94,6 +95,15 @@ class Modelo {
             $stmt->bind_param('sssssssiss', $nombre,$dirigido,$descripcion,$fInicioIns,$fFinIns,$fFinReto,$fPublicacion,$publicado,$idProf,$idCat);
             $stmt->execute();
             $stmt->close();
+    }
+    /*Devuelve todas las filas de la tabla retos*/
+    public function getRetos(){
+        $consulta=$this->db->query("SELECT * from retos;");
+        
+            while($filas=$consulta->fetch_assoc()){
+                $this->proyectos[]=$filas;
+            }
+            return $this->proyectos;
     }
 }
 ?>
