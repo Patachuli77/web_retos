@@ -24,10 +24,10 @@
                 <input type="date" name="fFinRet"><br/>
                 
                 <label for="fpublicRet">Fecha publicacion del reto</label><br/>
-                <input type="date" name="fpublicRet"><br/>
+                <input type="date" name="fPublicRet"><br/>
                 
                 <label for="publicado">Publicado</label><br/>
-                <input type="check" name="publicado"><br/>
+                <input type="checkbox" name="publicado"><br/>
 
                 <label for="categoria">Categoria</label><br/>
                 <select name="categoria">

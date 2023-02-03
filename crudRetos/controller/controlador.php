@@ -48,6 +48,8 @@ class ControladorCategoria {
         $this->modelo->eliminarCategoria($id);
         return $this->modelo->getCategoria();
     }
-
+    public function addReto(){
+        $this->modelo->addReto($_POST);
+    }
 }
 ?>
