@@ -49,14 +49,17 @@ class ControladorCategoria {
         return $this->modelo->getCategoria();
     }
     /*************************Retos******************************/
+    public function vistaListaReto(){
+        $this->vista = 'listarReto';
+    }
     public function addReto(){
-        $this->vista = 'listar';
+        $this->vista = 'listarReto';
 
         $this->modelo->addReto($_POST);
         return $this->modelo->getRetos();
     }
     public function getRetos(){
-       
+        $this->vista = 'listarReto';
        return $this->modelo->getRetos();
     }
 }

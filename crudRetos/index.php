@@ -22,6 +22,6 @@ if(method_exists($controladorCategoria,$_GET["action"])) $dataToView["data"] = $
 
 /** Monta las vistas */
 require_once('views/header.html');
-require_once('views/vista_'.$controladorCategoria->vista.'Reto.php');
+require_once('views/vista_'.$controladorCategoria->vista.'.php');
 require_once('Views/footer.html');
 ?> 
