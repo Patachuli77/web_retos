@@ -50,11 +50,14 @@ class ControladorCategoria {
     }
     /*************************Retos******************************/
     public function addReto(){
+        $this->vista = 'listar';
+
         $this->modelo->addReto($_POST);
+        return $this->modelo->getRetos();
     }
     public function getRetos(){
-
-        $this->modelo->getRetos()
+       
+       return $this->modelo->getRetos();
     }
 }
 ?>

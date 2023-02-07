@@ -1,3 +1,113 @@
 table, tr, td ,th {
     border: 1px solid black;
 }
+*{
+    margin:0;
+    padding: 0;
+	box-sizing: content-box;
+
+}
+/*html{
+    width: 1280px;
+}
+body{
+    width: 100%;
+}
+
+/***************NAV*******************/
+nav{
+    width: 100%;
+    background-color: aquamarine;
+    
+}
+nav img{
+    width:11.71875%;
+    height: auto;
+    display:inline-block;
+    margin-left: 3.125%;
+   
+}
+nav h1{
+    display:block;
+    float:right;
+    margin-top: 25px;
+    margin-right: 34.375%;
+    width: 31.25%;
+    font-size:5em;
+}
+/*************Aside***************/
+aside{
+    background-color: coral;
+    width: 10.9375%;
+    display:block;
+    float:left;
+    padding: 0.78125%;
+    min-height: 700px;
+}
+aside ol{
+    list-style: none;
+    width: 100%;
+}
+aside ol li#principal{
+    margin:0;
+    padding: 0;
+    width: 100%;
+    font-size:1.5em;
+}
+aside ol li{
+    margin: 0 3.571428571428571% 0 3.571428571428571%;
+    width:85.71428571428571%;
+    padding: 3.571428571428571%;
+}
+aside ol li.resaltado:hover{
+    background-color: brown;
+}
+
+/**********Div de la parte util***********/
+div#util{
+    background-color:bisque;
+    width: 87.5%;
+    display:block;
+    float:left;
+    min-height: 700px;
+    padding-top: 20px;
+}
+div#util h1{
+    margin-left: 36.60714285714286%;
+    width:26.78571428571429%;
+    font-size:2.5em;
+}
+div#util div{
+    background-color: lightblue;
+    margin-left: 14.28571428571429%;
+    width: 67.85714285714286%;
+    padding: 1.785714285714286%;
+    min-height: 400px;
+}
+
+
+
+div#util div label{
+    display:inline-block;
+    width: 13.02083333333333%;
+    margin-right: 1.953125%;
+}
+div#util div textarea{
+    border-width:2px;
+    width: 32.03125%;
+    margin-top: 40px;
+    margin-right: 3.90625%;
+}
+div#util div input {
+    width: 32.03125%;
+    margin-top: 40px;
+}
+div#util div input.izq{
+    margin-right: 3.90625%;
+}
+div#util div input[type=button] {
+    width: 20.3125%;
+}
+div#util div input[type=button].cancelar {
+    margin-right: 5.859375%;
+}
