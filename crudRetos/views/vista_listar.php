@@ -1,7 +1,4 @@
 <main>
-    <form action="index.php?action=setCategoria" method="POST">
-        <input type="submit" value="Añadir nueva Categoria">
-    </form>
     <table>
         <tr>
             <th>ID</th>
@@ -9,8 +6,7 @@
             <th>OPCIONES</th>
         </tr>
         <?php
-        var_dump( $dataToView["data"]);
-            if($dataToView["data"]==''){  
+            if($dataToView["data"]!=''){  
                 foreach ($dataToView["data"] as $datos) {
                     echo "<tr>
                             <td>".$datos['id']."</td>

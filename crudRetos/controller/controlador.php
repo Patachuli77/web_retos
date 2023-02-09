@@ -18,6 +18,7 @@ class ControladorCategoria {
     /*Funcion que pide al modelo las filas de la tabla categorias devuelve un array*/
     public function getCategoria() {
         // echo ' nombres Categorias ';
+        $this->vista = 'listar';
         return $this->modelo->getCategoria();
     }
     /*Funcion que cambia la vista a la vista editar y pide al modelo la fila del id que le pasa*/
@@ -51,6 +52,9 @@ class ControladorCategoria {
     /*************************Retos******************************/
     public function vistaListaReto(){
         $this->vista = 'listarReto';
+    }
+    public function setReto(){
+        $this->vista = 'aniadirReto';
     }
     public function addReto(){
         $this->vista = 'listarReto';

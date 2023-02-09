@@ -1,16 +1,13 @@
     <h1>Listado de Retos</h1>
 <?php
-        var_dump( $dataToView["data"]);
+        var_dump($dataToView["data"]);
             if($dataToView["data"]!=''){  
+                echo "<h1> Seleccione un reto</h1>
+                    <select>";
                 foreach ($dataToView["data"] as $datos) {
-                    echo "<tr>
-                            <td>".$datos['id']."</td>
-                            <td>
-                                ".$datos['nombre']."
-                            </td>
-                        </tr>";
+                    echo "<option value=".$datos['id'].">".$datos['nombre']."</option>";
                 }
-                echo " </table>";
+                echo " </select>";
             }
             else{
                 echo "</table>

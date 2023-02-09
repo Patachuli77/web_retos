@@ -86,7 +86,7 @@ class Modelo {
             /*$fInicioReto*/
             $fFinReto = $post["fFinRet"];
             $fPublicacion = $post["fPublicRet"];
-            $publicado = $post["publicado"];
+            $publicado = 1;
             $idProf = 1;
             $idCat = $post["categoria"];
         
