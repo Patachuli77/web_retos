@@ -80,7 +80,12 @@ class Modelo {
        
             $nombre = $post["nombre"];
             $dirigido = $post["dirigido"];
-            $descripcion = $post["descripcion"];
+            if($post["descripcion"]==""){
+                $descripcion = NULL;
+            }else{
+                $descripcion = $post["descripcion"];
+            }
+            
             $fInicioIns = $post["fInicioIns"];
             $fFinIns = $post["fFinIns"];
             /*$fInicioReto*/
@@ -104,6 +109,12 @@ class Modelo {
                 $this->proyectos[]=$filas;
             }
             return $this->proyectos;
+    }
+    public function eliminarReto($id){
+        $sql=("DELETE FROM retos WHERE id=".$id.";");
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute();
+        $stmt->close();
     }
 }
 ?>

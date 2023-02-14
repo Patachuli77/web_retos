@@ -66,5 +66,11 @@ class ControladorCategoria {
         $this->vista = 'listarReto';
        return $this->modelo->getRetos();
     }
+    public function eliminarReto(){
+       $this->vista = 'listarReto';
+        if(isset($_POST["id"])) $id = $_POST["id"];
+        $this->modelo->eliminarReto($id);
+        return $this->modelo->getRetos();
+    }
 }
 ?>
