@@ -2,11 +2,15 @@
 
 	require_once 'config/configuracion.php';
 	require_once 'model/conexion.php';
-	require_once 'controller/controlador.php';
+	
 
 
 /** Cargamos el controlador */
-$controladorCategoria = new ControladorCategoria();
+if(!isset($_GET["control"])) $_GET["control"] = constant("DEFAULT_CONTROL");
+
+
+	require_once 'controller/'.$_GET["control"].'.php';
+	$controlador = new Controlador();
 
 /**
  * Le mandamos mediante get las acciones que tiene que realizar el controlador 
@@ -15,13 +19,14 @@ $controladorCategoria = new ControladorCategoria();
 if(!isset($_GET["action"])) $_GET["action"] = constant("DEFAULT_ACTION");
 
 
+
 $dataToView["data"] = array();
 
-if(method_exists($controladorCategoria,$_GET["action"])) $dataToView["data"] = $controladorCategoria->{$_GET["action"]}();
+if(method_exists($controlador,$_GET["action"])) $dataToView["data"] = $controlador->{$_GET["action"]}();
 
 
 /** Monta las vistas */
 require_once('views/header.html');
-require_once('views/vista_'.$controladorCategoria->vista.'.php');
+require_once('views/'.$controlador->vista.'.php');
 require_once('Views/footer.html');
 ?> 

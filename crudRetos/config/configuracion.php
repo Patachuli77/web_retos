@@ -6,4 +6,5 @@
     define ("servidorbd", "2daw.esvirgua.com");
 
     define("DEFAULT_ACTION", "getCategoria");
+    define("DEFAULT_CONTROL","controladorCat");
 ?>
