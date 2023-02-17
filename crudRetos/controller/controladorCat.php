@@ -49,31 +49,5 @@ class Controlador{
         $this->modelo->eliminarCategoria($id);
         return $this->modelo->getCategoria();
     }
-<<<<<<< HEAD:crudRetos/controller/controladorCat.php
-=======
-    /*************************Retos******************************/
-    public function vistaListaReto(){
-        $this->vista = 'listarReto';
-    }
-    public function setReto(){
-        $this->vista = 'aniadirReto';
-    }
-    public function addReto(){
-        $this->vista = 'listarReto';
-
-        $this->modelo->addReto($_POST);
-        return $this->modelo->getRetos();
-    }
-    public function getRetos(){
-        $this->vista = 'listarReto';
-       return $this->modelo->getRetos();
-    }
-    public function eliminarReto(){
-       $this->vista = 'listarReto';
-        if(isset($_POST["id"])) $id = $_POST["id"];
-        $this->modelo->eliminarReto($id);
-        return $this->modelo->getRetos();
-    }
->>>>>>> b8d41a5252cf88d954ce55f4bfa2704e8c639f67:crudRetos/controller/controlador.php
 }
 ?>
