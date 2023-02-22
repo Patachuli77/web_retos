@@ -1,5 +1,5 @@
 <main id="aniadir">
-        <form action="index.php?action=addReto" enctype="multipart/form-data" method="POST">
+        <form action="index.php?action=addReto&control=controladorRetos" enctype="multipart/form-data" method="POST">
                 <input type="hidden" name="id"/>
                 <input type="hidden" name="idProf"/>
                 <label for="nombre">Nombre</label><br/>

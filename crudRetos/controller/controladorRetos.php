@@ -1,6 +1,6 @@
 <?php
 require_once "model/modeloReto.php";
-
+//hay q hacer un formulario que se valide desde el servidor por ejemplo si seleccionmos las categorias desde un desplegable y lo cambiamos a uno de texto los fallos que de los dara el gestor 
 /**
  *  Clase Controlador. Recibe las peticiones de las vistas, solicita información
  *  u ordena cambios al Modelo
@@ -27,6 +27,11 @@ public function vistaListaReto(){
     public function getRetos(){
         $this->vista = 'retos/listarReto';
        return $this->modelo->getRetos();
+    }
+    public function consReto(){
+        if(isset($_POST["id"])) $id = $_POST["id"];
+        $this->vista = 'retos/consultarReto';
+       return $this->modelo->consReto($id);
     }
 }
 ?>

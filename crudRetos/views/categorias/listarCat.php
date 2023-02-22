@@ -14,10 +14,10 @@
                                 ".$datos['nombre']."
                             </td>
                             <td>
-                                <a href=\"index.php?action=editarCategoria&id=".$datos['id']."\">
+                                <a href=\"index.php?action=editarCategoria&control=controladorCat&id=".$datos['id']."\">
                                  <span class=\"material-symbols-outlined\">edit_note</span>
                                 </a>
-                                <a href=\"index.php?action=eliminarCategoria&id=".$datos['id']."\">
+                                <a href=\"index.php?action=eliminarCategoria&control=controladorCat&id=".$datos['id']."\">
                                  <span class=\"material-symbols-outlined\">delete</span>
                                 </a>
                             </td>

@@ -38,5 +38,11 @@ class Modelo {
             }
             return $this->proyectos;
     }
+    public function consReto($id){
+
+        $consulta=$this->db->query(" SELECT * from retos WHERE id=".$id."; ");
+        
+        return $consulta->fetch_assoc();
+    }
 }
 ?>

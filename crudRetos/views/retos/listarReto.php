@@ -3,12 +3,12 @@
         //var_dump($dataToView["data"]);
             if($dataToView["data"]!=''){  
                 echo "<h1> Seleccione un reto</h1>
-                   <form action='index.php?action=eliminarReto' enctype='multipart/form-data' method='POST'> <select name='id'>";
+                   <form action='index.php?action=consReto&control=controladorRetos' enctype='multipart/form-data' method='POST'> <select name='id'>";
                 foreach ($dataToView["data"] as $datos) {
                     echo "<option value=".$datos['id'].">".$datos['nombre']."</option>";
                 }
                 echo " </select>
-                    <input type='submit' value='eliminar'>
+                    <input type='submit' value='consultar'>
                 </form>";
             }
             else{
