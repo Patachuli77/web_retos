@@ -31,8 +31,11 @@
 
                 <label for="categoria">Categoria</label><br/>
                 <select name="categoria">
-                    <option value="1">Hola</option>
-                    <option value="2">Adios</option>
+                <?php
+                    foreach ($dataToView["data"] as $datos) {
+                        echo "<option value=".$datos['id'].">".$datos['nombre']."</option>";
+                    }
+                ?>
                 </select><br/>
 
                 <input type="submit">

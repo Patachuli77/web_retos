@@ -17,6 +17,7 @@ public function vistaListaReto(){
     }
     public function setReto(){
         $this->vista = 'retos/aniadirReto';
+        return $this->modelo->getCategorias();
     }
     public function addReto(){
         $this->vista = 'retos/listarReto';
@@ -32,6 +33,22 @@ public function vistaListaReto(){
         if(isset($_POST["id"])) $id = $_POST["id"];
         $this->vista = 'retos/consultarReto';
        return $this->modelo->consReto($id);
+    }
+    public function editarReto(){
+        if(isset($_GET["id"])) $id = $_GET["id"];
+        $this->vista = 'retos/editarReto';
+       return $this->modelo->consReto($id);
+    }
+     public function eliminarReto(){
+        $this->vista = "retos/listarReto";
+        if(isset($_GET["id"])) $id = $_GET["id"];
+        $this->modelo->eliminarReto($id);
+        return $this->modelo->getRetos();
+    }
+    public function saveReto(){
+        $this->vista = 'retos/listarReto';
+        $this->modelo->saveReto($_POST);
+        return $this->modelo->getRetos();
     }
 }
 ?>

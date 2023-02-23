@@ -44,5 +44,5 @@ var_dump($dataToView["data"])
                 <td><?php echo $categoria;?></td>
             </tr>
         </table>
-        <p>editar eliminar</p>
+        <p><a href="index.php?action=editarReto&control=controladorRetos&id=<?php echo $id;?>">editar</a> <a href="index.php?action=eliminarReto&control=controladorRetos&id=<?php echo $id;?>">eliminar</a></p>
 </main>

@@ -16,7 +16,7 @@ if(isset($dataToView["data"]["idCategoria"])) $categoria = $dataToView["data"]["
 var_dump($dataToView["data"])
 ?>
 <main id="consulta">
-    <form action="index.php" enctype="multipart/form-data" method="POST">
+    <form action="index.php?action=saveReto&control=controladorRetos" enctype="multipart/form-data" method="POST">
                 <input type="hidden" value="<?php echo $id;?>" name="id"/>
                 <input type="hidden" name="idProf"/>
                 <label for="nombre">Nombre</label><br/>
@@ -52,6 +52,6 @@ var_dump($dataToView["data"])
                     <option value="2">Adios</option>
                 </select><br/>
 
-                <input type="submit">
+                <input type="submit" value="Guardar">
          </form>
 <main>
