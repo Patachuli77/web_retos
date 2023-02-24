@@ -17,7 +17,7 @@ class Modelo {
             $descripcion = $post["descripcion"];
             $fInicioIns = $post["fInicioIns"];
             $fFinIns = $post["fFinIns"];
-            /*$fInicioReto*/
+            $fInicioReto = $post["fInicioRet"];
             $fFinReto = $post["fFinRet"];
             if(isset($post["publicado"])){
                 $publicado = 1;
@@ -29,9 +29,9 @@ class Modelo {
             $idProf = 1;
             $idCat = $post["categoria"];
         
-            $sql=("INSERT INTO retos (id, nombre,dirigido,descripcion,fechaInicioInscripcion,fechaFinInscripcion,fechaFinReto,fechaPublicacion,publicado,idProfesor,idCategoria) values(default, ?,?,?,?,?,?,?,?,?,?);");
+            $sql=("INSERT INTO retos (id, nombre,dirigido,descripcion,fechaInicioInscripcion,fechaFinInscripcion,fechaInicioReto,fechaFinReto,fechaPublicacion,publicado,idProfesor,idCategoria) values(default, ?,?,?,?,?,?,?,?,?,?,?);");
             $stmt = $this->db->prepare($sql);
-            $stmt->bind_param('sssssssiss', $nombre,$dirigido,$descripcion,$fInicioIns,$fFinIns,$fFinReto,$fPublicacion,$publicado,$idProf,$idCat);
+            $stmt->bind_param('ssssssssiss', $nombre,$dirigido,$descripcion,$fInicioIns,$fFinIns,$fInicioReto,$fFinReto,$fPublicacion,$publicado,$idProf,$idCat);
             $stmt->execute();
             $stmt->close();
     }
@@ -47,7 +47,7 @@ class Modelo {
     /*Devuelve el reto asociado al id que le pasaron*/
     public function consReto($id){
 
-        $consulta=$this->db->query(" SELECT * from retos WHERE id=".$id."; ");
+        $consulta=$this->db->query(" SELECT retos.* , categorias.nombre as categoria from retos LEFT JOIN categorias on categorias.id=retos.idCategoria WHERE retos.id=".$id."; ");
         
         return $consulta->fetch_assoc();
     }
@@ -59,6 +59,7 @@ class Modelo {
         $stmt->execute();
         $stmt->close();
     }
+    /*Guarda el reto para la edicion*/ 
     public function saveReto($post){
 
         $nombre = $post["nombre"];
@@ -66,7 +67,7 @@ class Modelo {
         $descripcion = $post["descripcion"];
         $fInicioIns = $post["fInicioIns"];
         $fFinIns = $post["fFinIns"];
-        /*$fInicioReto*/
+        $fInicioReto = $post["fInicioRet"];
         $fFinReto = $post["fFinRet"];
         if(isset($post["publicado"])){
             $publicado = 1;
@@ -78,9 +79,9 @@ class Modelo {
         $idCat = $post["categoria"];
         $id= $post["id"];
 
-        $sql=("UPDATE retos SET nombre = ?, dirigido = ?,descripcion = ?,fechaInicioInscripcion = ?,fechaFinInscripcion = ?,fechaFinReto = ?,fechaPublicacion = ?,publicado = ?,idProfesor = ?,idCategoria = ?  WHERE id=".$post["id"].";");
+        $sql=("UPDATE retos SET nombre = ?, dirigido = ?,descripcion = ?,fechaInicioInscripcion = ?,fechaFinInscripcion = ?,fechaInicioReto = ?,fechaFinReto = ?,fechaPublicacion = ?,publicado = ?,idProfesor = ?,idCategoria = ?  WHERE id=".$post["id"].";");
             $stmt = $this->db->prepare($sql);
-            $stmt->bind_param('sssssssiss', $nombre,$dirigido,$descripcion,$fInicioIns,$fFinIns,$fFinReto,$fPublicacion,$publicado,$idProf,$idCat);
+            $stmt->bind_param('ssssssssiss', $nombre,$dirigido,$descripcion,$fInicioIns,$fInicioReto,$fFinIns,$fFinReto,$fPublicacion,$publicado,$idProf,$idCat);
             $stmt->execute();
             $stmt->close();
     }
@@ -92,5 +93,6 @@ class Modelo {
         }
         return $this->proyectos;
     }
+    //public function 
 }
 ?>

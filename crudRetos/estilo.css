@@ -7,33 +7,37 @@ table, tr, td ,th {
 	box-sizing: content-box;
 
 }
-/*html{
-    width: 1280px;
-}
+
 body{
     width: 100%;
 }
 
 /***************NAV*******************/
-nav{
+nav#nav1{
     width: 100%;
     background-color: aquamarine;
+    max-height: 150px;
     
 }
-nav img{
+nav#nav1 img{
     width:11.71875%;
     height: auto;
     display:inline-block;
     margin-left: 3.125%;
+    max-height: 150px;
+    max-width: 150px;
    
 }
-nav h1{
+nav#nav1 h1{
     display:block;
     float:right;
-    margin-top: 25px;
+    margin-top: 30px;
     margin-right: 34.375%;
     width: 31.25%;
-    font-size:5em;
+    font-size:4em;
+}
+nav#nav2{
+    display: none;
 }
 /*************Aside***************/
 aside{
@@ -52,7 +56,7 @@ aside ol li#principal{
     margin:0;
     padding: 0;
     width: 100%;
-    font-size:1.5em;
+    font-size:0.75em;
 }
 aside ol li{
     margin: 0 3.571428571428571% 0 3.571428571428571%;
@@ -75,7 +79,7 @@ div#util{
 div#util h1{
     margin-left: 36.60714285714286%;
     width:26.78571428571429%;
-    font-size:2.5em;
+    font-size:2em;
 }
 div#util div{
     background-color: lightblue;
@@ -84,9 +88,6 @@ div#util div{
     padding: 1.785714285714286%;
     min-height: 400px;
 }
-
-
-
 div#util div label{
     display:inline-block;
     width: 13.02083333333333%;
@@ -110,4 +111,119 @@ div#util div input[type=button] {
 }
 div#util div input[type=button].cancelar {
     margin-right: 5.859375%;
+}
+/*Media 1 900 px de ancho*/
+@media only screen and (max-width: 950px) {
+    nav#nav1 h1{
+        font-size:2.5em;
+    }
+    div#util h1{
+
+        font-size:1.5em;
+    }
+    aside{
+        display: none;
+    }
+    div#util{
+        width: 100%;
+    }
+    div#util div{
+        margin-left: 6.28571428571429%;
+        width: 83.85714285714286%;
+    }
+    nav#nav2{
+        display: block;
+        width: 100%;
+        background-color: coral;
+        min-height: 70px;
+    }
+    nav#nav2 ol{
+        width: 100%;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+    nav#nav2 ol li{
+        float:left;
+        margin: 0 3.571428571428571% 0 3.571428571428571%;
+        padding: 3.571428571428571%;
+    }
+    nav#nav2 ol li.resaltado:hover{
+        background-color: brown;
+    }
+    
+    
+}
+@media only screen and (max-width: 675px) {
+    nav#nav1 h1{
+        margin-top: 5px;
+        margin-right: 20.375%;
+        width: 59.25%;
+    }
+    div#util{
+        padding-top: 10px;
+    }
+    div#util h1{  
+        margin-left: 13.60714285714286%;
+        width:72.78571428571429%;
+        font-size:2em;
+    }
+    aside{
+        display: none;
+    }
+    div#util div{
+        margin-left: 0.28571428571429%;
+        width: 95.85714285714286%;
+    }
+    nav#nav2{
+        display: block;
+        width: 100%;
+        background-color: coral;
+        min-height: 40px;
+    }
+    nav#nav2 ol{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+    nav#nav2 ol li{
+        float:left;
+        margin: 0 1.571428571428571% 0 1.571428571428571%;
+        padding: 2.571428571428571%;
+        width:25%;
+    }
+    nav#nav2 ol li.resaltado:hover{
+        background-color: brown;
+    }
+
+    div#util div label{
+        display:inline-block;
+        width: 26.02083333333333%;
+        margin-right: 3.906250%;
+    }
+   
+    div#util div input {
+        width: 64.03125%;
+        margin-top: 20px;
+        margin-right: 4.90625%;
+    }
+    div#util div textarea{
+        border-width:2px;
+        width: 64.03125%;
+        margin-top: 20px;
+        margin-right: 4.90625%;
+    }
+    div#util div input.izq{
+        margin-right: 4.90625%;
+    }
+    div#util div input[type=button] {
+        float:right;
+        width: 20.3125%;
+    }
+    div#util div input[type=button].cancelar {
+        margin-right: 5.859375%;
+    }
+
 }

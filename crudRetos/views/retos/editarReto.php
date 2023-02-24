@@ -13,9 +13,10 @@ if(isset($dataToView["data"]["fechaFinReto"])) $fFinRet = substr($dataToView["da
 if(isset($dataToView["data"]["fechaPublicacion"])) $fpublicRet = substr($dataToView["data"]["fechaPublicacion"],0,-9);
 if(isset($dataToView["data"]["publicado"])) $publicado = $dataToView["data"]["publicado"];
 if(isset($dataToView["data"]["idCategoria"])) $categoria = $dataToView["data"]["idCategoria"];
-var_dump($dataToView["data"])
+//var_dump($dataToView["data"])
 ?>
 <main id="consulta">
+    <h1>Edicion del Reto</h1>
     <form action="index.php?action=saveReto&control=controladorRetos" enctype="multipart/form-data" method="POST">
                 <input type="hidden" value="<?php echo $id;?>" name="id"/>
                 <input type="hidden" name="idProf"/>

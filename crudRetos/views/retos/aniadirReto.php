@@ -1,4 +1,5 @@
 <main id="aniadir">
+    <h1>Alta de Reto</h1>
         <form action="index.php?action=addReto&control=controladorRetos" enctype="multipart/form-data" method="POST">
                 <input type="hidden" name="id"/>
                 <input type="hidden" name="idProf"/>

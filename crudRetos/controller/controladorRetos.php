@@ -31,6 +31,7 @@ public function vistaListaReto(){
     }
     public function consReto(){
         if(isset($_POST["id"])) $id = $_POST["id"];
+        if(isset($_GET["id"])) $id = $_GET["id"];
         $this->vista = 'retos/consultarReto';
        return $this->modelo->consReto($id);
     }
@@ -46,9 +47,16 @@ public function vistaListaReto(){
         return $this->modelo->getRetos();
     }
     public function saveReto(){
-        $this->vista = 'retos/listarReto';
+        $this->vista = 'retos/consultarReto';
         $this->modelo->saveReto($_POST);
-        return $this->modelo->getRetos();
+        if(isset($_POST["id"])) $id = $_POST["id"];
+        return $this->modelo->consReto($id);
+    }
+    /*Para confirmar la eliminacion del reto*/
+    public function confElimReto(){
+        $this->vista = "retos/eliminarReto";
+        if(isset($_GET["id"])) $id = $_GET["id"];
+        return $this->modelo->consReto($id);
     }
 }
 ?>
