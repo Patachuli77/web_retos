@@ -5,6 +5,6 @@
     define ("basedatos", "user2daw_BD2-10");
     define ("servidorbd", "2daw.esvirgua.com");
 
-    define("DEFAULT_ACTION", "getCategoria");
-    define("DEFAULT_CONTROL","controladorCat");
+    define("DEFAULT_ACTION", "inicioSes");
+    define("DEFAULT_CONTROL","controladorSes");
 ?>

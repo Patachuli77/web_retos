@@ -66,6 +66,31 @@ aside ol li{
 aside ol li.resaltado:hover{
     background-color: brown;
 }
+/************Inicio Session****************/
+main#inicioSes{
+    background-color: coral;
+    /*height: ;*/
+}
+main#inicioSes h1{
+    text-align: center;
+}
+main#inicioSes form{
+    text-align: center;
+    height: 300px;
+    width: 33%;
+    margin-left: 33%;
+}
+main#inicioSes form input{
+    margin-bottom: 15px;
+}
+main#inicioSes form input[type=submit]{
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgb(44, 42, 42);
+    color: white;
+    margin-bottom: 0px;
+}
+
 
 /**********Div de la parte util***********/
 div#util{
