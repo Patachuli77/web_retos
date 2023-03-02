@@ -11,8 +11,12 @@ class Controlador{
         $this->vista = 'sesion/sesion';
     }
     public function verificar(){
+        if($this->modelo->primero()["sesion"]=='0'){
+            
+            $this->modelo->aniadir($_POST);
+        }
        // var_dump($this->modelo->verificar($_POST));
-        if($this->modelo->verificar($_POST)["sesion"]!='0'){
+        if($this->modelo->verificar($_POST)!='0'){
             $this->vista= 'retos/aniadirReto';
         }else{
             echo 'mal';
