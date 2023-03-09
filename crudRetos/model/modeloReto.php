@@ -65,6 +65,9 @@ class Modelo {
         $nombre = $post["nombre"];
         $dirigido = $post["dirigido"];
         $descripcion = $post["descripcion"];
+        if(empty($descripcion)){
+            $descripcion=NULL;
+        }
         $fInicioIns = $post["fInicioIns"];
         $fFinIns = $post["fFinIns"];
         $fInicioReto = $post["fInicioRet"];

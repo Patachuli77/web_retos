@@ -17,26 +17,9 @@ if(isset($dataToView["data"]["categoria"])) $categoria = $dataToView["data"]["ca
 //var_dump($dataToView["data"])
 
 ?>
-<nav id="nav2">
-        <ol>
-            <li id="principal"><h2>Opciones</h2></li>
-            <li class="resaltado"><form method="POST" action="index.php?action=getRetos&control=controladorRetos"><input type="submit" value="Lista de reto"></form></li>
-            <li class="resaltado"><form method="POST" action="index.php?action=setReto&control=controladorRetos"><input type="submit" value="Alta de reto"></form></li>
-            <li class="resaltado"><form method="POST" action="index.php?action=getCategoria&control=controladorCat"><input type="submit" value="Lista de categoria"></form></li>
-            <li class="resaltado"><form method="POST" action="index.php?action=setCategoria&control=controladorCat"><input type="submit" value="Alta de categoria"></form></li>
-        </ol>
-    </nav>
-    <main>
-        <aside>
-            <ol>
-                <li id="principal"><h2>Opciones</h2></li>
-                <li class="resaltado"><form method="POST" action="index.php?action=getRetos&control=controladorRetos"><input type="submit" value="Lista de reto"></form></li>
-                <li class="resaltado"><form method="POST" action="index.php?action=setReto&control=controladorRetos"><input type="submit" value="Alta de reto"></form></li>
-                <li class="resaltado"><form method="POST" action="index.php?action=getCategoria&control=controladorCat"><input type="submit" value="Lista de categoria"></form></li>
-                <li class="resaltado"><form method="POST" action="index.php?action=setCategoria&control=controladorCat"><input type="submit" value="Alta de categoria"></form></li>
-            </ol>
-        </aside>
-        <div id="util">
+<?php
+    require_once "./views/plantillas/navbar.html";
+?>
 <main id="consulta">
     <h1>Informacion del Reto</h1>
         <table>

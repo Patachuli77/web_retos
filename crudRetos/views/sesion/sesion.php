@@ -4,7 +4,7 @@
         <label for="nombre">Nombre</label></br>
         <input type="text" name="nombre"></br>
         <label for="clave">Contraseña</label></br>
-        <input type="text" name="clave"></br>
+        <input type="password" name="clave"></br>
         <input type="submit" value="Iniciar Sesion">
     </form>
 </main>

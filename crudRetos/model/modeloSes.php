@@ -23,7 +23,7 @@
             $fila = $result->fetch_array(MYSQLI_NUM);
 
             if($result && password_verify($clave, $fila[2])){
-                session_start();
+                @session_start();
                 $_SESSION['id'] = $fila[0];
                 $_SESSION['nombre'] = $fila[1];
                 return '1';

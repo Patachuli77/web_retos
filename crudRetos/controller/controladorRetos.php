@@ -13,50 +13,77 @@ class Controlador {
     }
 
 public function vistaListaReto(){
-        $this->vista = 'retos/listarReto';
+        if($this->comprobarSes()){
+            $this->vista = 'retos/listarReto';
+        }
     }
     public function setReto(){
-        $this->vista = 'retos/aniadirReto';
-        return $this->modelo->getCategorias();
+        if($this->comprobarSes()){
+            $this->vista = 'retos/aniadirReto';
+            return $this->modelo->getCategorias();
+        }
     }
     public function addReto(){
-        $this->vista = 'retos/listarReto';
-
-        $this->modelo->addReto($_POST);
-        return $this->modelo->getRetos();
+        if($this->comprobarSes()){
+            $this->vista = 'retos/listarReto';
+            $this->modelo->addReto($_POST);
+            return $this->modelo->getRetos();
+        }
     }
     public function getRetos(){
-        $this->vista = 'retos/listarReto';
-       return $this->modelo->getRetos();
+        if($this->comprobarSes()){
+            $this->vista = 'retos/listarReto';
+            return $this->modelo->getRetos();
+        }
     }
     public function consReto(){
-        if(isset($_POST["id"])) $id = $_POST["id"];
-        if(isset($_GET["id"])) $id = $_GET["id"];
-        $this->vista = 'retos/consultarReto';
-       return $this->modelo->consReto($id);
+        if($this->comprobarSes()){
+            if(isset($_POST["id"])) $id = $_POST["id"];
+            if(isset($_GET["id"])) $id = $_GET["id"];
+            $this->vista = 'retos/consultarReto';    
+            return $this->modelo->consReto($id);  
+        }
     }
     public function editarReto(){
-        if(isset($_GET["id"])) $id = $_GET["id"];
-        $this->vista = 'retos/editarReto';
-       return $this->modelo->consReto($id);
+        if($this->comprobarSes()){
+            if(isset($_GET["id"])) $id = $_GET["id"];
+            $this->vista = 'retos/editarReto';
+            return $this->modelo->consReto($id);
+        }
     }
      public function eliminarReto(){
-        $this->vista = "retos/listarReto";
-        if(isset($_GET["id"])) $id = $_GET["id"];
-        $this->modelo->eliminarReto($id);
-        return $this->modelo->getRetos();
+        if($this->comprobarSes()){
+            $this->vista = "retos/listarReto";
+            if(isset($_GET["id"])) $id = $_GET["id"];
+            $this->modelo->eliminarReto($id);
+            return $this->modelo->getRetos();
+        }
     }
     public function saveReto(){
-        $this->vista = 'retos/consultarReto';
-        $this->modelo->saveReto($_POST);
-        if(isset($_POST["id"])) $id = $_POST["id"];
-        return $this->modelo->consReto($id);
+        if($this->comprobarSes()){
+            $this->vista = 'retos/consultarReto';
+            $this->modelo->saveReto($_POST);
+            if(isset($_POST["id"])) $id = $_POST["id"];
+            return $this->modelo->consReto($id);
+        }
     }
     /*Para confirmar la eliminacion del reto*/
     public function confElimReto(){
-        $this->vista = "retos/eliminarReto";
-        if(isset($_GET["id"])) $id = $_GET["id"];
-        return $this->modelo->consReto($id);
+        if($this->comprobarSes()){
+            $this->vista = "retos/eliminarReto";
+            if(isset($_GET["id"])) $id = $_GET["id"];
+            return $this->modelo->consReto($id);
+        }
+    }
+    public function comprobarSes(){
+        if(!$_SESSION){
+            $this->vista = 'sesion/sesion';
+            return false;
+        }
+        else{
+            return true;
+        }
+
     }
 }
 ?>
