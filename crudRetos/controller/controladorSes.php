@@ -17,10 +17,9 @@ class Controlador{
         }*/
         if($this->modelo->verificar($_POST)!='0'){
             $this->vista= 'sesion/inicio';
-        }else{
-            echo 'mal';//cambiar
-        }
-        //Si hago una vista mas como inicio puedo hacer truquele
+        }/*else{
+            //echo 'mal';//cambiar
+        }*/
     }
     public function cerrarSes(){
         $this->modelo->cerrarSes();
