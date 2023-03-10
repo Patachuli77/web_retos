@@ -11,17 +11,20 @@ class Controlador{
         $this->vista = 'sesion/sesion';
     }
     public function verificar(){
-        if($this->modelo->primero()["sesion"]=='0'){
+        /*if($this->modelo->primero()["sesion"]=='0'){
             
             $this->modelo->aniadir($_POST);
-        }
-       // var_dump($this->modelo->verificar($_POST));
+        }*/
         if($this->modelo->verificar($_POST)!='0'){
-            $this->vista= 'retos/aniadirReto';
+            $this->vista= 'sesion/inicio';
         }else{
-            echo 'mal';
+            echo 'mal';//cambiar
         }
         //Si hago una vista mas como inicio puedo hacer truquele
+    }
+    public function cerrarSes(){
+        $this->modelo->cerrarSes();
+        $this->vista = 'sesion/sesion';
     }
 
 

@@ -1,9 +1,10 @@
 <?php
     require_once "./views/plantillas/navbar.html";
+
 ?>
     <h1>Listado de Retos</h1>
     <?php
-            //var_dump($dataToView["data"]);
+            //var_dump($dataToView["categorias"]);
                 if($dataToView["data"]!=''){  
                     echo "<h2> Seleccione un reto</h2>
                     <form action='index.php?action=consReto&control=controladorRetos' enctype='multipart/form-data' method='POST'> <select name='id'>";
@@ -21,10 +22,6 @@
                 }
     ?>
     <h1>Pdf con retos</h1>  
-    <form action=''>
+    <form action='index.php?action=pdfRetos&control=controladorRetos' enctype='multipart/form-data' method='POST'>
         <input type="submit" value="Descargar Retos">
     </form>
-    <?php
-        
-
-    ?>

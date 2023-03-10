@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	require_once 'fpdf/fpdf.php';
 	require_once 'config/configuracion.php';
 	require_once 'model/conexion.php';
 	
@@ -22,9 +23,12 @@ if(!isset($_GET["action"])) $_GET["action"] = constant("DEFAULT_ACTION");
 
 $dataToView["data"] = array();
 
+
 if(method_exists($controlador,$_GET["action"])) $dataToView["data"] = $controlador->{$_GET["action"]}();
 
-
+if($_GET["control"]=='controladorRetos'){
+	$dataToView["categorias"]=$controlador->getCategorias();
+}
 /** Monta las vistas */
 require_once('views/header.html');
 require_once('views/'.$controlador->vista.'.php');

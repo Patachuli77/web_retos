@@ -26,7 +26,7 @@ class Modelo {
             }
             $fPublicacion = $post["fPublicRet"];
     
-            $idProf = 1;
+            $idProf = $_SESSION['id'];
             $idCat = $post["categoria"];
         
             $sql=("INSERT INTO retos (id, nombre,dirigido,descripcion,fechaInicioInscripcion,fechaFinInscripcion,fechaInicioReto,fechaFinReto,fechaPublicacion,publicado,idProfesor,idCategoria) values(default, ?,?,?,?,?,?,?,?,?,?,?);");
@@ -37,7 +37,7 @@ class Modelo {
     }
     /*Devuelve todas las filas de la tabla retos*/
     public function getRetos(){
-        $consulta=$this->db->query("SELECT * from retos;");
+        $consulta=$this->db->query("SELECT retos.*, categorias.nombre as categoria  from retos LEFT JOIN categorias on categorias.id=retos.idCategoria;");
         
             while($filas=$consulta->fetch_assoc()){
                 $this->proyectos[]=$filas;
@@ -78,7 +78,7 @@ class Modelo {
              $publicado = 0;
         }
         $fPublicacion = $post["fPublicRet"];
-        $idProf = 1;
+        $idProf = $_SESSION['id'];
         $idCat = $post["categoria"];
         $id= $post["id"];
 
@@ -96,6 +96,52 @@ class Modelo {
         }
         return $this->proyectos;
     }
-    //public function 
+    public function pdfRetos(){
+		//Objeto pdf
+		$pdf = new FPDF();
+		//llamo los datos del reto
+		$datosReto = $this->getRetos();
+		//Añado una pagina al pdf
+		$pdf->AddPage();
+
+		// metadatos
+		$pdf->SetTitle('Retos');
+		$pdf->SetAuthor('Jorge');
+
+
+		// añado un titulo
+		$pdf->SetFont('Arial', 'B', 36);
+		$pdf->Cell(0, 200, 'Retos Escolares', 0, 1, 'C');
+		$pdf->Ln();
+
+        foreach($datosReto as $reto){
+            $pdf->AddPage();
+            $pdf->SetFont('Arial', '', 24);
+            $pdf->MultiCell(0, 7, utf8_decode("Nombre del reto: ".$reto['nombre']), 0, 1);
+            $pdf->Ln();
+            $pdf->SetFont('Arial', 'B', 14);
+            $pdf->MultiCell(0, 7, utf8_decode("Recomendado para"), 0, 1);
+            $pdf->SetFont('Arial', '', 10);
+            $pdf->MultiCell(0, 7, utf8_decode($reto['dirigido']), 0, 1);
+            $pdf->SetFont('Arial', 'B', 14);
+            $pdf->Ln();
+            $pdf->MultiCell(0, 7, utf8_decode("Descripcion del reto"), 0, 1);
+            $pdf->SetFont('Arial', '', 10);
+            if ($reto['descripcion']==NULL)
+            {
+                $pdf->MultiCell(0, 7, utf8_decode("Sin descripcion"), 0, 1);
+            }
+            else{
+                $pdf->MultiCell(0, 7, utf8_decode($reto['descripcion']), 0, 1);
+            }
+            $pdf->Ln();
+            $pdf->SetFont('Arial', 'B', 14);
+            $pdf->MultiCell(0, 7, utf8_decode("Categoria"), 0, 1);
+            $pdf->SetFont('Arial', '', 10);
+            $pdf->MultiCell(0, 7, utf8_decode($reto['categoria']), 0, 1);
+            $pdf->Ln();
+        }
+		$pdf->Output('', 'Retos.pdf');
+    } 
 }
 ?>

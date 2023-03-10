@@ -13,7 +13,7 @@ if(isset($dataToView["data"]["fechaFinReto"])) $fFinRet = substr($dataToView["da
 if(isset($dataToView["data"]["fechaPublicacion"])) $fpublicRet = substr($dataToView["data"]["fechaPublicacion"],0,-9);
 if(isset($dataToView["data"]["publicado"])) $publicado = $dataToView["data"]["publicado"];
 if(isset($dataToView["data"]["idCategoria"])) $categoria = $dataToView["data"]["idCategoria"];
-//var_dump($dataToView["data"])
+
 ?>
 <?php
     require_once "./views/plantillas/navbar.html";
@@ -51,9 +51,18 @@ if(isset($dataToView["data"]["idCategoria"])) $categoria = $dataToView["data"]["
                 <input type="checkbox" <?php if($publicado==1) echo 'checked';?> name="publicado"><br/>
 
                 <label for="categoria">Categoria</label><br/>
-                <select name="categoria" value="<?php echo $categoria;?>">
-                    <option value="1">Hola</option>
-                    <option value="2">Adios</option>
+                <select name="categoria">
+                <?php
+                
+                    foreach ($dataToView["categorias"] as $datos) {
+                        if($datos["id"]==$categoria){
+                            echo "<option selected value=".$datos["id"].">".$datos["nombre"]."</option>";
+                        }else{
+                            echo "<option value=".$datos["id"].">".$datos["nombre"]."</option>";
+                        }
+                       
+                    }
+                ?>
                 </select><br/>
 
                 <input type="submit" value="Guardar">

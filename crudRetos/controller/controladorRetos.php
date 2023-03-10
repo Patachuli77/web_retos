@@ -17,6 +17,11 @@ public function vistaListaReto(){
             $this->vista = 'retos/listarReto';
         }
     }
+    public function getCategorias(){ 
+        if($this->comprobarSes()){
+            return $this->modelo->getCategorias();
+        }
+    }
     public function setReto(){
         if($this->comprobarSes()){
             $this->vista = 'retos/aniadirReto';
@@ -83,6 +88,9 @@ public function vistaListaReto(){
         else{
             return true;
         }
+    }
+    public function pdfRetos(){
+        $this->modelo->pdfRetos();
 
     }
 }

@@ -38,7 +38,7 @@
             return $consulta->fetch_assoc();
            
         }
-        public function aniadir($post){
+       /*public function aniadir($post){
             $nombre= $post["nombre"];
             $clave= password_hash($post['clave'], PASSWORD_BCRYPT);
             $correo = 'jorge@gmail';
@@ -47,6 +47,10 @@
             $stmt->bind_param('sss', $nombre,$correo,$clave);
             $stmt->execute();
             $stmt->close();
+        }*/
+        public function cerrarSes(){
+            session_unset();
+            session_destroy();
         }
     }
 
